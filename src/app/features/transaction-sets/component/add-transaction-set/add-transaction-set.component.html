@@ -1,0 +1,52 @@
+<mat-card class="file-input-card">
+  <mat-card-header>
+    <mat-card-title>New transaction set</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="card-content">
+    <form [formGroup]="transactionSetFormGroup">
+      <div>
+        <mat-form-field>
+          <input matInput
+                 formControlName="startDate"
+                 [matDatepicker]="startPicker"
+                 placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix
+                                 [for]="startPicker"></mat-datepicker-toggle>
+          <mat-datepicker #startPicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput
+                 formControlName="endDate"
+                 [matDatepicker]="endPicker"
+                 placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix
+                                 [for]="endPicker"></mat-datepicker-toggle>
+          <mat-datepicker #endPicker></mat-datepicker>
+        </mat-form-field>
+        <div style="overflow-y: auto">
+          <button *ngIf="!fileSelected"
+                  onclick="document.getElementById('agreementFile').click()"
+                  mat-button>Select file</button>
+
+          <input class="fu"
+                 type="file"
+                 id="agreementFile"
+                 (change)="setSelectedFile($event)">
+          <div style="display: flex; justify-content: space-between; padding-left: 15px"
+               *ngIf="fileSelected">
+            <label>File selected: {{file.name}}</label>
+            <mat-icon style="margin-right: 30px; cursor: pointer"
+                      (click)="cancelSelection()">cancel</mat-icon>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button
+            (click)="uploadFile()">UPLOAD</button>
+  </mat-card-actions>
+</mat-card>

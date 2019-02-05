@@ -13,7 +13,9 @@ import {
   MatDialogModule,
   MatPaginatorModule,
   MatSortModule,
-  MatSelectModule
+  MatSelectModule,
+  MatDatepicker,
+  MatDatepickerModule
 } from "@angular/material";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatCardModule } from "@angular/material/card";
@@ -30,6 +32,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDatepickerModule,
     MatGridListModule,
     MatDialogModule,
     MatListModule,

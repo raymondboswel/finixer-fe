@@ -1,6 +1,7 @@
 <div style="width:100%">
   <div style="display: flex; justify-content: right">
-    <button mat-button>Add new</button>
+    <button mat-button
+            (click)="gotoAddTransactionSet()">Add new transaction set</button>
 
   </div>
   <app-transaction-sets-table [transactionSets]="transactionSets"

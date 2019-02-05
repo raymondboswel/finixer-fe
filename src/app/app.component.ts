@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Observable } from "rxjs";
 import { Breakpoints, BreakpointObserver } from "@angular/cdk/layout";
 import { map } from "rxjs/operators";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-root",
@@ -14,9 +15,16 @@ export class AppComponent {
     .observe(Breakpoints.Handset)
     .pipe(map(result => result.matches));
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private router: Router
+  ) {}
 
-  showDashboard() {}
+  showDashboard() {
+    this.router.navigateByUrl("/");
+  }
 
-  showTransactionSets() {}
+  showTransactionSets() {
+    this.router.navigate(["transaction-sets"]);
+  }
 }

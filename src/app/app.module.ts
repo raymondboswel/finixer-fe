@@ -1,3 +1,4 @@
+import { AddTransactionSetComponent } from "./features/transaction-sets/component/add-transaction-set/add-transaction-set.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
@@ -7,6 +8,7 @@ import { TransactionSetsContainerComponent } from "./features/transaction-sets/t
 import { TransactionSetsModule } from "./features/transaction-sets/transaction-sets.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModule } from "./material-module.module";
+import { MatNativeDateModule } from "@angular/material";
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,9 +16,22 @@ import { MaterialModule } from "./material-module.module";
     BrowserModule,
     TransactionSetsModule,
     MaterialModule,
+    MatNativeDateModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: "", component: TransactionSetsContainerComponent }
+      {
+        path: "transaction-sets",
+        children: [
+          {
+            path: "",
+            component: TransactionSetsContainerComponent
+          },
+          {
+            path: "new",
+            component: AddTransactionSetComponent
+          }
+        ]
+      }
     ]),
     BrowserAnimationsModule
   ],

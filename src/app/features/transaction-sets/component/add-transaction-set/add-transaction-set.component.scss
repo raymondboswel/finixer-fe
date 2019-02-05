@@ -1,0 +1,17 @@
+.card-content {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fu {
+  opacity: 0; /* make transparent */
+  z-index: -1; /* move under anything else */
+  position: absolute; /* don't let it take up space */
+}
+
+.fu-label {
+  height: 24px;
+  margin-bottom: 0px;
+}

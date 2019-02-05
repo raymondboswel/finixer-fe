@@ -1,6 +1,7 @@
 import { TransactionSet } from "./../../../models/transaction-set.interface";
 import { TransactionSetsService } from "./../transaction-sets.service";
 import { Component, OnInit } from "@angular/core";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-transaction-sets-container",
@@ -10,7 +11,11 @@ import { Component, OnInit } from "@angular/core";
 export class TransactionSetsContainerComponent implements OnInit {
   transactionSets: TransactionSet[];
 
-  constructor(private transactionSetsService: TransactionSetsService) {}
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private transactionSetsService: TransactionSetsService
+  ) {}
 
   ngOnInit() {
     this.transactionSetsService
@@ -18,5 +23,9 @@ export class TransactionSetsContainerComponent implements OnInit {
       .subscribe(transactionSets => {
         this.transactionSets = transactionSets;
       });
+  }
+
+  gotoAddTransactionSet() {
+    this.router.navigate(["new"], { relativeTo: this.activatedRoute });
   }
 }
