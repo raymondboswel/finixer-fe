@@ -21,12 +21,13 @@ interface GetTransactionSetResponse {
 export class TransactionSetsService {
   constructor(private http: HttpClient) {}
 
-  uploadTransactionSet(file, startDate: Date, endDate: Date) {
+  uploadTransactionSet(file, title, startDate: Date, endDate: Date) {
     const formData = new FormData();
     console.log(file);
     formData.append("file", file);
-    formData.append("start_date", startDate.toDateString());
-    formData.append("end_date", startDate.toDateString());
+    formData.append("title", title);
+    formData.append("start_date", startDate.toISOString());
+    formData.append("end_date", startDate.toISOString());
 
     return this.http.post(
       `http://localhost:4000/api/transaction_sets`,

@@ -5,6 +5,15 @@
   <mat-card-content class="card-content">
     <form [formGroup]="transactionSetFormGroup">
       <div>
+        <mat-form-field appearance="standard">
+          <mat-label>Title</mat-label>
+          <input matInput
+                 formControlName="title"
+                 placeholder="Title">
+          <mat-hint>Title of the transaction set, e.g December 2019</mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
         <mat-form-field>
           <input matInput
                  formControlName="startDate"

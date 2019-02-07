@@ -29,6 +29,10 @@ import { MatNativeDateModule } from "@angular/material";
           {
             path: "new",
             component: AddTransactionSetComponent
+          },
+          {
+            path: "view/${id}",
+            component: 
           }
         ]
       }

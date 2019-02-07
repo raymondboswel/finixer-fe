@@ -18,6 +18,7 @@ export class AddTransactionSetComponent implements OnInit {
 
   ngOnInit() {
     this.transactionSetFormGroup = this.fb.group({
+      title: "",
       startDate: new Date(),
       endDate: new Date()
     });
@@ -26,11 +27,12 @@ export class AddTransactionSetComponent implements OnInit {
   uploadFile() {
     const startDate = this.transactionSetFormGroup.controls["startDate"].value;
     const endDate = this.transactionSetFormGroup.controls["endDate"].value;
+    const title = this.transactionSetFormGroup.controls["title"].value;
     if (!this.fileSelected) {
       alert("Please select a file.");
     } else {
       this.transactionSetsService
-        .uploadTransactionSet(this.file, startDate, endDate)
+        .uploadTransactionSet(this.file, title, startDate, endDate)
         .subscribe();
       this.fileSelected = false;
     }
