@@ -31,6 +31,9 @@ export class TransactionSetsTableComponent implements OnInit, OnChanges {
   }
 
   viewTransactions(transactionSet: TransactionSet) {
-    this.router.navigate(["view", transactionSet.id]);
+    console.log(transactionSet);
+    this.router.navigate([`view/${transactionSet.id}`], {
+      relativeTo: this.activatedRoute
+    });
   }
 }

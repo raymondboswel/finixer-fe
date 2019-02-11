@@ -1,7 +1,8 @@
 import { Party } from "./party.interface";
 
-export interface PartyTransaction {
+export interface Transaction {
+  id: string;
   amount: number;
-  transaction_date: Date;
-  party: Party[];
+  transactionDate: Date;
+  party: Party;
 }

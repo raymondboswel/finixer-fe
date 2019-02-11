@@ -1,3 +1,4 @@
+import { TransactionsTableComponent } from "./features/transaction-sets/component/transactions-table/transactions-table.component";
 import { AddTransactionSetComponent } from "./features/transaction-sets/component/add-transaction-set/add-transaction-set.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
@@ -31,8 +32,8 @@ import { MatNativeDateModule } from "@angular/material";
             component: AddTransactionSetComponent
           },
           {
-            path: "view/${id}",
-            component: 
+            path: "view/:id",
+            component: TransactionsTableComponent
           }
         ]
       }
