@@ -1,3 +1,4 @@
+import { AddTagDialogComponent } from "./../add-tag-dialog/add-tag-dialog.component";
 import { TagsService } from "./../../../tags/tags-service";
 import { ActivatedRoute } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
@@ -5,6 +6,7 @@ import { TransactionSetsService } from "../../transaction-sets.service";
 import { Party } from "src/app/models/party.interface";
 import { Tag } from "src/app/models/tag.interface";
 import { Transaction } from "src/app/models/transaction.interface";
+import { MatDialog } from "@angular/material";
 
 @Component({
   selector: "app-transactions-table",
@@ -23,7 +25,8 @@ export class TransactionsTableComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private transactionsSetService: TransactionSetsService,
-    private tagsService: TagsService
+    private tagsService: TagsService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -58,5 +61,11 @@ export class TransactionsTableComponent implements OnInit {
       : party.tags.filter(t => t.id === tag_id);
   }
 
-  addTag() {}
+  addTag(transaction: Transaction) {
+    const dialogRef = this.dialog.open(AddTagDialogComponent, {
+      width: "80%"
+    });
+
+    dialogRef.componentInstance.party = transaction.party;
+  }
 }

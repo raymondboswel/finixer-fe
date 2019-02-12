@@ -27,4 +27,8 @@ export class AppComponent {
   showTransactionSets() {
     this.router.navigate(["transaction-sets"]);
   }
+
+  showTags() {
+    this.router.navigate(["tags"]);
+  }
 }

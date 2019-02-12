@@ -1,0 +1,25 @@
+<div class="container">
+  <mat-form-field appearance="outline">
+    <mat-label>New tag</mat-label>
+    <input matInput
+           [(ngModel)]="newTag"
+           placeholder="Tag name">
+  </mat-form-field>
+  <div>
+    <button mat-button
+            (click)="addTag()">Add tag</button>
+
+  </div>
+</div>
+
+<div class="container">
+  <mat-list class="tags-list">
+    <mat-list-item class="list-item"
+                   *ngFor="let tag of tags"
+                   (click)="deleteTag(tag)">
+      <div style="width: 100%">{{tag.name}}</div>
+      <mat-icon style="cursor: pointer;;">delete</mat-icon>
+    </mat-list-item>
+  </mat-list>
+
+</div>

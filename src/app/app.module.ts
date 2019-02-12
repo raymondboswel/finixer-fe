@@ -10,12 +10,15 @@ import { TransactionSetsModule } from "./features/transaction-sets/transaction-s
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModule } from "./material-module.module";
 import { MatNativeDateModule } from "@angular/material";
+import { TagsListContainerComponent } from "./features/tags/tags-list-container/tags-list-container.component";
+import { TagsModule } from "./features/tags/tags.module";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     TransactionSetsModule,
+    TagsModule,
     MaterialModule,
     MatNativeDateModule,
     HttpClientModule,
@@ -36,6 +39,10 @@ import { MatNativeDateModule } from "@angular/material";
             component: TransactionsTableComponent
           }
         ]
+      },
+      {
+        path: "tags",
+        children: [{ path: "", component: TagsListContainerComponent }]
       }
     ]),
     BrowserAnimationsModule

@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Add tag to transaction party</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-select [(value)]="selectedTag"
+                placeholder="Tag">
+      <mat-option *ngFor="let tag of tags"
+                  [value]="tag.id">
+        {{tag.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button
+          (click)="cancel()">Cancel</button>
+  <button mat-button
+          (click)="addPartyTag()"
+          cdkFocusInitial>Ok</button>
+</div>

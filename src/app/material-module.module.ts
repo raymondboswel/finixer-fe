@@ -33,6 +33,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     FormsModule,
     ReactiveFormsModule,
     MatDatepickerModule,
+    MatListModule,
     MatGridListModule,
     MatDialogModule,
     MatListModule,
