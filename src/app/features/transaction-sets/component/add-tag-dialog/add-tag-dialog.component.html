@@ -4,7 +4,7 @@
     <mat-select [(value)]="selectedTag"
                 placeholder="Tag">
       <mat-option *ngFor="let tag of tags"
-                  [value]="tag.id">
+                  [value]="tag">
         {{tag.name}}
       </mat-option>
     </mat-select>

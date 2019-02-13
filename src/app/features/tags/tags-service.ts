@@ -16,7 +16,7 @@ export class TagsService {
 
   addPartyTag(party_id, tag_id) {
     return this.http.post(`http://localhost:4000/api/parties_tags`, {
-      party_tag: { party_id: party_id, tag_id: tag_id }
+      party_tag: { tag_id: tag_id, party_id: party_id }
     });
   }
 

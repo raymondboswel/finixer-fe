@@ -29,6 +29,7 @@ export class AddTagDialogComponent implements OnInit {
   }
 
   addPartyTag() {
+    console.log(this.selectedTag);
     this.tagsService
       .addPartyTag(this.party.id, this.selectedTag.id)
       .subscribe(() => {
