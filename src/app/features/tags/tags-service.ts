@@ -20,6 +20,12 @@ export class TagsService {
     });
   }
 
+  addTransactionTag(transaction_id, tag_id) {
+    return this.http.post("http://localhost:4000/api/transaction_tags", {
+      transaction_tag: { transaction_id: transaction_id, tag_id: tag_id }
+    });
+  }
+
   removeTag(party_id, tag_id) {
     return this.http.delete(
       `http://localhost:4000/api/parties/${party_id}/tag/${tag_id}`

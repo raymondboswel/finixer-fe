@@ -15,10 +15,10 @@
 <div class="container">
   <mat-list class="tags-list">
     <mat-list-item class="list-item"
-                   *ngFor="let tag of tags"
-                   (click)="deleteTag(tag)">
+                   *ngFor="let tag of tags">
       <div style="width: 100%">{{tag.name}}</div>
-      <mat-icon style="cursor: pointer;;">delete</mat-icon>
+      <mat-icon style="cursor: pointer;;"
+                (click)="deleteTag(tag)">delete</mat-icon>
     </mat-list-item>
   </mat-list>
 

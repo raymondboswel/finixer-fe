@@ -1,0 +1,24 @@
+.list-item {
+  border: 1px solid lightpink;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.parties-list {
+  width: 80%;
+}
+
+.party-name {
+}
+
+.list-item-content {
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+}

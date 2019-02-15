@@ -1,8 +1,8 @@
 import {
   AddTagDialogComponent,
   TagType
-} from "./../add-tag-dialog/add-tag-dialog.component";
-import { TagsService } from "./../../../tags/tags-service";
+} from "../add-tag-dialog/add-tag-dialog.component";
+import { TagsService } from "../../../tags/tags-service";
 import { ActivatedRoute } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
 import { TransactionSetsService } from "../../transaction-sets.service";
@@ -12,11 +12,11 @@ import { Transaction } from "src/app/models/transaction.interface";
 import { MatDialog } from "@angular/material";
 
 @Component({
-  selector: "app-transactions-table",
-  templateUrl: "./transactions-table.component.html",
-  styleUrls: ["./transactions-table.component.scss"]
+  selector: "app-untagged-transactions-table",
+  templateUrl: "./untagged-transactions-table.component.html",
+  styleUrls: ["./untagged-transactions-table.component.scss"]
 })
-export class TransactionsTableComponent implements OnInit {
+export class UntaggedTransactionsTableComponent implements OnInit {
   displayedColumns: string[] = [
     "transactionDate",
     "party",
@@ -37,7 +37,7 @@ export class TransactionsTableComponent implements OnInit {
       // console.log()
       const transactionSetId = paramsMap.get("id");
       this.transactionsSetService
-        .getTransactions(transactionSetId)
+        .getUntaggedTransactions(transactionSetId)
         .subscribe(r => {
           this.datasource = r;
         });

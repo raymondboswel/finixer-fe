@@ -6,10 +6,12 @@ import { TransactionSetsTableComponent } from "./component/transaction-sets-tabl
 import { AddTransactionSetComponent } from "./component/add-transaction-set/add-transaction-set.component";
 import { TransactionsTableComponent } from "./component/transactions-table/transactions-table.component";
 import { AddTagDialogComponent } from "./component/add-tag-dialog/add-tag-dialog.component";
+import { UntaggedTransactionsTableComponent } from "./component/untagged-transactions-table/untagged-transactions-table.component";
 
 @NgModule({
   imports: [CommonModule, MaterialModule],
   declarations: [
+    UntaggedTransactionsTableComponent,
     TransactionSetsContainerComponent,
     TransactionSetsTableComponent,
     AddTransactionSetComponent,

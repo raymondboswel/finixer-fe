@@ -1,0 +1,18 @@
+<div class="container">
+  <mat-list class="parties-list">
+    <mat-list-item class="list-item"
+                   *ngFor="let party of parties">
+      <div class="list-item-content">
+
+        <div class="party-name">{{party.name}}</div>
+        <button mat-raised-button
+                color="accent"
+                *ngIf="!party.tags || party.tags?.length == 0"
+                (click)="addTag(party)">Add tag</button>
+        <span class="tag"
+              *ngFor="let tag of party.tags">{{tag.name}} | <span (click)="removeTag(party, tag )">x</span></span>
+      </div>
+    </mat-list-item>
+  </mat-list>
+
+</div>

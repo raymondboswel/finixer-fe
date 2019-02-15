@@ -85,6 +85,18 @@ export class TransactionSetsService {
       );
   }
 
+  getUntaggedTransactions(transactionSetId: string) {
+    return this.http
+      .get(
+        `http://localhost:4000/api/transaction_sets/${transactionSetId}/untagged_transactions`
+      )
+      .pipe(
+        map((r: any) => {
+          return r.data.map(rt => this.convertToLocalTransaction(rt));
+        })
+      );
+  }
+
   convertToLocalTransactionSet(rts: RemoteTransactionSet) {
     const ts: TransactionSet = {
       id: rts.id,

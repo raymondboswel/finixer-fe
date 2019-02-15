@@ -1,0 +1,10 @@
+.tag {
+  border: 1px solid lightblue;
+  border-radius: 3px;
+  background-color: darkgray;
+  padding: 3px;
+}
+
+.tag > span {
+  cursor: pointer;
+}

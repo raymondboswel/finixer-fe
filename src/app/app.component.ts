@@ -1,8 +1,9 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { Observable } from "rxjs";
 import { Breakpoints, BreakpointObserver } from "@angular/cdk/layout";
 import { map } from "rxjs/operators";
 import { Router } from "@angular/router";
+import { MatSidenav } from "@angular/material";
 
 @Component({
   selector: "app-root",
@@ -11,6 +12,8 @@ import { Router } from "@angular/router";
 })
 export class AppComponent {
   title = "finixir-fe";
+  @ViewChild("drawer")
+  sidenav: MatSidenav;
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map(result => result.matches));
@@ -21,14 +24,23 @@ export class AppComponent {
   ) {}
 
   showDashboard() {
-    this.router.navigateByUrl("/");
+    this.navigate("/");
   }
 
   showTransactionSets() {
-    this.router.navigate(["transaction-sets"]);
+    this.navigate("transaction-sets");
   }
 
   showTags() {
-    this.router.navigate(["tags"]);
+    this.navigate("tags");
+  }
+
+  showParties() {
+    this.navigate("parties");
+  }
+
+  navigate(url: string) {
+    this.router.navigate([url]);
+    this.sidenav.close();
   }
 }

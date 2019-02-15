@@ -1,3 +1,5 @@
+import { UntaggedTransactionsTableComponent } from "./features/transaction-sets/component/untagged-transactions-table/untagged-transactions-table.component";
+import { PartyListContainerComponent } from "./features/parties/party-list-container/party-list-container.component";
 import { TransactionsTableComponent } from "./features/transaction-sets/component/transactions-table/transactions-table.component";
 import { AddTransactionSetComponent } from "./features/transaction-sets/component/add-transaction-set/add-transaction-set.component";
 import { BrowserModule } from "@angular/platform-browser";
@@ -12,6 +14,7 @@ import { MaterialModule } from "./material-module.module";
 import { MatNativeDateModule } from "@angular/material";
 import { TagsListContainerComponent } from "./features/tags/tags-list-container/tags-list-container.component";
 import { TagsModule } from "./features/tags/tags.module";
+import { PartiesModule } from "./features/parties/parties.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +22,7 @@ import { TagsModule } from "./features/tags/tags.module";
     BrowserModule,
     TransactionSetsModule,
     TagsModule,
+    PartiesModule,
     MaterialModule,
     MatNativeDateModule,
     HttpClientModule,
@@ -37,12 +41,20 @@ import { TagsModule } from "./features/tags/tags.module";
           {
             path: "view/:id",
             component: TransactionsTableComponent
+          },
+          {
+            path: `view/:id/untagged`,
+            component: UntaggedTransactionsTableComponent
           }
         ]
       },
       {
         path: "tags",
         children: [{ path: "", component: TagsListContainerComponent }]
+      },
+      {
+        path: "parties",
+        children: [{ path: "", component: PartyListContainerComponent }]
       }
     ]),
     BrowserAnimationsModule

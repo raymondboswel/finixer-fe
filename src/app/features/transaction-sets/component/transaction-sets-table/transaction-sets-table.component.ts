@@ -36,4 +36,10 @@ export class TransactionSetsTableComponent implements OnInit, OnChanges {
       relativeTo: this.activatedRoute
     });
   }
+
+  viewUntaggedTransactions(transactionSet: TransactionSet) {
+    this.router.navigate([`view/${transactionSet.id}/untagged`], {
+      relativeTo: this.activatedRoute
+    });
+  }
 }
